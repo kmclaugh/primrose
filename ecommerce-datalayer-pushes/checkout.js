@@ -1,24 +1,25 @@
 /*
- * action:          add to cart
- * description:     fire whenever a user adds something to the cart
- * required fields: product.id and product.name
- * reference: https://www.simoahava.com/analytics/enhanced-ecommerce-guide-for-google-tag-manager/#add-to-cart
+ * action:          check out
+ * description:     fire for each step of the checkout process (ie view cart, enter shipping info, payment)
+ * required fields: actionField.step, product.id and product.name
+ * reference: https://www.simoahava.com/analytics/enhanced-ecommerce-guide-for-google-tag-manager/#checkout
  */
 window.dataLayer = window.dataLayer || [];
 window.dataLayer.push({
-  event: "eec.add",
-  eecEventName: "Add to Cart",
+  event: "eec.checkout",
+  eecEventName: "Checkout {{checkout.step}}",
   ecommerce: {
-    add: {
+    remove: {
       actionField: {
-        list: "{{collection.title}} || cart", // 'fall collection' // Where the add to cart happened. use 'cart' if the removal happened on the cart page
+        step: "{{checkout.step}}", // 1 // The checkout step (starting at 1).
+        option: "{{checkout.payment_method}}", // Visa // extra metadata (e.g. shipping or payment method)
       },
       products: [
         {
           // built-in enhanced ecommerce fields:
           id: "{{ product.id }}", // 'P12345' // use product id not variant id
           name: "{{product.title}}", // 'awesome t-shirt'
-          quantity: "{{product.quantity}}", // 1 // the quantity ADDED to the cart (not the quantity in the cart)
+          quantity: "{{product.quantity}}", // 1 // the quantity REMOVED from the cart (not the quantity remaining in the cart)
           brand: "{{shop.name}}", // my-store // if there are multiple brands use the brand variable here
           price: '{{product.price | money_without_currency | remove: ","}}', // 10.0 // make sure the price is a number ie 10.00 not $10.00
           variant: "{{product.selected_variant.variant.name}}", // 'large - yellow'

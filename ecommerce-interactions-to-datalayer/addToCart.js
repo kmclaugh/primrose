@@ -1,8 +1,9 @@
 /*
  * action:          add to cart
- * description:     fire whenever a user adds something to the cart
+ * description:     fire whenever a user adds something to the cart.
  * required fields: product.id and product.name
  * reference: https://www.simoahava.com/analytics/enhanced-ecommerce-guide-for-google-tag-manager/#add-to-cart
+ * notes: the products list should include ONLY the product that was added to the cart, not the entire cart
  */
 window.dataLayer = window.dataLayer || [];
 window.dataLayer.push({

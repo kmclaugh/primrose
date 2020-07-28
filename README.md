@@ -78,7 +78,7 @@ id: "{{ product.id }}", // 'P12345' // use product id not variant id
 ```
 
 How you fill in the variable will depends on what framework you site is built
-with. For instance, ruby sites may use templating to fill in the variables
+with. For instance, django sites may use templating to fill in the variables
 (similar to format used in the scripts) but react sites may require a purer
 javascript implementation.
 

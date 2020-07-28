@@ -3,6 +3,7 @@
  * description:     fire whenever a user views the details of a product
  * required fields: product.id and product.name
  * reference: https://www.simoahava.com/analytics/enhanced-ecommerce-guide-for-google-tag-manager/#product-detail-views
+ * notes: the products list should include ONLY the single product that the user is viewing
  */
 window.dataLayer = window.dataLayer || [];
 window.dataLayer.push({

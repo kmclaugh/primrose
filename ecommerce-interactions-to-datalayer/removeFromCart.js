@@ -3,6 +3,7 @@
  * description:     fire whenever a user removes something from the cart
  * required fields: product.id and product.name
  * reference: https://www.simoahava.com/analytics/enhanced-ecommerce-guide-for-google-tag-manager/#remove-from-cart
+ * notes: the products list should include ONLY the product that was removed from the cart, not the entire cart
  */
 window.dataLayer = window.dataLayer || [];
 window.dataLayer.push({

@@ -31,7 +31,8 @@ window.dataLayer.push({
           productURL: "{{shop.secure_url}}{{product.url}}",
           comparePrice:
             "{{product.compare_at_price_max|money_without_currency}}", // 15.00
-          categories: '{{product.collections|map:"title"|json}}', // ['mens', 't-shirts']
+          categories: '{{product.collections|map:"title"|json}}', // ['mens', 'shirts', 't-shirts']
+          category: "{{product.taxonomy}}", // 'mens/shirts/t-shirts' // maximum of 5 levels of hierarchy
           currentCategory: "{{collection.title}}", // 't-shirts'
           variantId: "{{product.selected_variant.variant.id}}", // 'l101'
         },

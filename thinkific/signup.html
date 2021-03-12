@@ -1,0 +1,14 @@
+<script>
+  dataLayer.push({
+    event: "user.signup",
+    eventName: "User Signup",
+    userData: {
+      id: {{id}}, // The unique identifier of the user that signed up
+      firstName: {{first_name}},
+      lastName: {{last_name}},
+      fullName: {{full_name}},
+      email: {{email}},
+      createdAt: {{created_at}}, // The date of the signup in number of seconds since the Unix epoch
+    },
+  });
+</script>

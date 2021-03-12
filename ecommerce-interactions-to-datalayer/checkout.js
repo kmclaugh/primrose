@@ -9,7 +9,7 @@ window.dataLayer.push({
   event: "eec.checkout",
   eecEventName: "Checkout {{checkout.step}}",
   ecommerce: {
-    remove: {
+    checkout: {
       actionField: {
         step: "{{checkout.step}}", // 1 // The checkout step (starting at 1).
         option: "{{checkout.payment_method}}", // Visa // extra metadata (e.g. shipping or payment method)

@@ -1,4 +1,5 @@
 <script>
+  window.dataLayer = window.dataLayer || [];
   dataLayer.push({
     event: "eec.purchase",
     eecEventName: "Purchase",
@@ -6,29 +7,29 @@
       currencyCode: "USD",
       purchase: {
         actionField: {
-          id: {{order_number}},
+          id: "{{order_number}}",
           affiliation: "My Store - Thinkific", // you should enter your store's name
-          revenue: {{total_price}},
+          revenue: "{{total_price}}",
           shipping: "0",
         },
         products: [
           {
             // built-in enhanced ecommerce fields:
-            name: {{product_name}},
-            id: {{product_id}},
-            price: {{total_price}},
+            name: "{{product_name}}",
+            id: "{{product_id}}",
+            price: "{{total_price}}",
             quantity: 1,
             // requires product-scoped custom dimensions:
-            referralCode: {{referral_code}},
+            referralCode: "{{referral_code}}",
           },
         ],
       },
     },
     // not part of the enhanced ecommerce object but nice to have in the datalayer
-    billingName: {{billing_name}},
-    billingEmail: {{billing_email}},
-    paymentMethod: {{payment_method}},
-    paymentProdiver: {{payment_provider}}, // e.g. Stripe or PayPal
-    buyerIdentifier: {{buyer_identifier}} // The unique identifier of the purchaser in the context of the payment provider. For example, for Stripe this would be the cust_XXX identifier.
+    billingName: "{{billing_name}}",
+    billingEmail: "{{billing_email}}",
+    paymentMethod: "{{payment_method}}",
+    paymentProdiver: "{{payment_provider}}", // e.g. Stripe or PayPal
+    buyerIdentifier: "{{buyer_identifier}}", // The unique identifier of the purchaser in the context of the payment provider. For example, for Stripe this would be the cust_XXX identifier.
   });
 </script>

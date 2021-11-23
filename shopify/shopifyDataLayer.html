@@ -526,7 +526,7 @@
         },
         products: products
       }
-      fireEnhancedEcommerce("checkout ", "Checkout 1", eeDataCheckout1)
+      fireEnhancedEcommerce("checkout", "Checkout 1", eeDataCheckout1)
       if(__bva__.debug){
         console.log("Cart"+" :"+JSON.stringify(cart, null, " "));
       }
@@ -761,7 +761,7 @@
                     },
                     products: products
                   }
-            fireEnhancedEcommerce("checkout ", "Checkout 1", eeDataCheckout1)
+            fireEnhancedEcommerce("checkout", "Checkout 1", eeDataCheckout1)
             if(cart.products.length > 0){
               dataLayer.push(cart);
               if (__bva__.debug) {

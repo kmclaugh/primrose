@@ -645,17 +645,44 @@
               dataLayer.push(transactionData,{
                 'event'    :'Customer Information',
                 'pageType' :'Customer Information'});
-                console.log("Customer Information - Transaction Data"+" :"+JSON.stringify(transactionData, null, " "));
+              var eeDataCheckout = {
+                checkout: {
+                  actionField: {
+                    step: 1
+                  },
+                  products: transactionData.products
+                }
+              };
+              fireEnhancedEcommerce("checkout", "Checkout 1", eeDataCheckout);
+              console.log("Customer Information - Transaction Data"+" :"+JSON.stringify(transactionData, null, " "));
             }else if (Shopify.Checkout.step === 'shipping_method'){
               dataLayer.push(transactionData,{
                 'event'    :'Shipping Information',
                 'pageType' :'Shipping Information'});
-                console.log("Shipping - Transaction Data"+" :"+JSON.stringify(transactionData, null, " "));
+              var eeDataCheckout = {
+                checkout: {
+                  actionField: {
+                    step: 2
+                  },
+                  products: transactionData.products
+                }
+              };
+              fireEnhancedEcommerce("checkout", "Checkout 3", eeDataCheckout);
+              console.log("Shipping - Transaction Data"+" :"+JSON.stringify(transactionData, null, " "));
             }else if( Shopify.Checkout.step === "payment_method" ){
               dataLayer.push(transactionData,{
                 'event'    :'Add Payment Info',
                 'pageType' :'Add Payment Info'});
-                console.log("Payment - Transaction Data"+" :"+JSON.stringify(transactionData, null, " "));
+              var eeDataCheckout = {
+                checkout: {
+                  actionField: {
+                    step: 3
+                  },
+                  products: transactionData.products
+                }
+              };
+              fireEnhancedEcommerce("checkout", "Checkout 3", eeDataCheckout);
+              console.log("Payment - Transaction Data"+" :"+JSON.stringify(transactionData, null, " "));
             }
           }
 

@@ -246,6 +246,7 @@
         {% if shop.customer_accounts_enabled %}
         {% if customer %}
         'userId'        : '{{customer.id}}',
+        'customerId'    : '{{customer.id}}',
         'customerEmail' : '{{customer.email}}',
         'logState'      : "Logged In",
         'customerInfo'  : {
@@ -267,7 +268,6 @@
         {% endif %}
         {% endif %}
         'firstLog'      : firstLog,
-        'customerEmail' : '{{customer.email}}',
         'timestamp'     : Date.now(),
         {% if customer.orders_count > 2 %}
         'customerType'       : 'Returning',

@@ -362,8 +362,6 @@
           'imageURL'        : "https:{{product.featured_image.src|img_url:'grande'}}",
           'productURL'      : '{{shop.secure_url}}{{product.url}}',
           'brand'           : '{{shop.name}}',
-          'comparePrice'    : '{{product.compare_at_price_max|money_without_currency}}',
-          'categories'      : {{product.collections|map:"title"|json}},
           'currentCategory' : "{{collection.title}}",
           'productOptions'  : {
             {% for option in product.options_with_values %}
@@ -401,9 +399,6 @@
               "{{product.description | strip_newlines | strip_html | escape }}",
               imageURL: "https:{{product.featured_image.src|img_url:'grande'}}",
               productURL: "{{shop.secure_url}}{{product.url}}",
-              comparePrice:
-              "{{product.compare_at_price_max|money_without_currency}}", // 15.00
-              categories: '{{product.collections|map:"title"|json}}', // ['mens', 't-shirts']
               currentCategory: "{{collection.title}}", // 't-shirts'
               variantId: "{{product.selected_variant.variant.id}}", // 'l101'
             },
@@ -436,8 +431,6 @@
             'imageURL'        : "https:{{product.featured_image.src|img_url:'grande'}}",
             'productURL'      : '{{shop.secure_url}}{{product.url}}',
             'brand'           : '{{shop.name}}',
-            'comparePrice'    : '{{product.compare_at_price_max|money_without_currency}}',
-            'categories'      : {{product.collections|map:"title"|json}},
             'currentCategory' : "{{collection.title}}",
             'productOptions'  : {
               {% for option in product.options_with_values %}
@@ -478,9 +471,6 @@
                 "{{product.description | strip_newlines | strip_html | escape }}",
               imageURL: "https:{{product.featured_image.src|img_url:'grande'}}",
               productURL: "{{shop.secure_url}}{{product.url}}",
-              comparePrice:
-                "{{product.compare_at_price_max|money_without_currency}}", // 15.00
-              categories: '{{product.collections|map:"title"|json}}', // ['mens', 't-shirts']
               currentCategory: "{{collection.title}}", // 't-shirts'
               variantId: "{{product.selected_variant.variant.id}}", // 'l101'
             }
@@ -964,9 +954,6 @@
                           "{{product.description | strip_newlines | strip_html | escape }}",
                         imageURL: "https:{{product.featured_image.src|img_url:'grande'}}",
                         productURL: "{{shop.secure_url}}{{product.url}}",
-                        comparePrice:
-                          "{{product.compare_at_price_max|money_without_currency}}",
-                        categories: '{{product.collections|map:"title"|json}}',
                         currentCategory: "{{collection.title}}",
                         variantId: "{{product.selected_variant.variant.id}}",
                       }
@@ -1007,9 +994,6 @@
                 "{{product.description | strip_newlines | strip_html | escape }}",
                 imageURL: "https:{{product.featured_image.src|img_url:'grande'}}",
                 productURL: "{{shop.secure_url}}{{product.url}}",
-                comparePrice:
-                "{{product.compare_at_price_max|money_without_currency}}", // 15.00
-                categories: '{{product.collections|map:"title"|json}}', // ['mens', 't-shirts']
                 currentCategory: "{{collection.title}}", // 't-shirts'
                 variantId: "{{product.selected_variant.variant.id}}", // 'l101'
               }

@@ -1,0 +1,90 @@
+<script>
+  function fireEnhancedEcommerce(event, eventName, eeData) {
+    var eeObject = {};
+    eeObject[event] = eeData;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "eec." + event,
+      eecEventName: eventName,
+      ecommerce: eeObject,
+    });
+  }
+  var order = window.Shopify.order;
+  var products = order.lineItems.map((item) => ({
+    id: Number(item.id).toString(),
+    name: item.title,
+    category: item.product.type,
+    price: item.price,
+    quantity: item.quantity,
+    variant: Number(item.variant.id).toString(),
+    sku: item.variant.sku,
+  }));
+  var eeDataPurchase = {
+    actionField: {
+      id: Number(order.number).toString(),
+      revenue: order.totalPrice,
+      currency: order.currency,
+    },
+    products,
+  };
+  fireEnhancedEcommerce("purchase", "Purchase", eeDataPurchase);
+</script>
+
+<script>
+  var shop = {
+    shop: {
+      id: 2728131,
+      currency: "USD",
+    },
+    order: {
+      id: 4506495385672,
+      number: 199531,
+      checkoutToken: "c37b9a214f2f8766954eda56ceb23f02",
+      lineItems: [
+        {
+          id: 11515042234440,
+          finalLinePrice: "99.00",
+          finalPrice: "99.00",
+          lineLevelTotalDiscount: 0,
+          optionsWithValues: [
+            {
+              name: "Size",
+              value: "1-Person",
+            },
+          ],
+          originalLinePrice: "99.00",
+          originalPrice: "99.00",
+          price: "99.00",
+          product: {
+            id: 6598186238024,
+            type: "Printed Original",
+          },
+          properties: [],
+          quantity: 1,
+          title: "Original Puffy Blanket - Teton Fade - 1-Person",
+          variant: {
+            id: 39386179567688,
+            sku: "TPPB-TTF-1",
+          },
+        },
+      ],
+      subtotalPrice: "99.00",
+      totalPrice: "99.00",
+      currency: "USD",
+      discounts: null,
+      customer: {
+        id: 5784385126472,
+        email: "test4-19-3@kevincmclaughlin.com",
+        acceptsMarketing: false,
+        hasAccount: false,
+        firstName: "Kevin",
+        lastName: "McLaughlin",
+        ordersCount: 1,
+        totalSpent: "99.00",
+      },
+    },
+    pageUrl:
+      "https://www.rumpl.com/2728131/checkouts/c37b9a214f2f8766954eda56ceb23f02/post_purchase",
+    wasPostPurchasePageSeen: false,
+  };
+</script>
